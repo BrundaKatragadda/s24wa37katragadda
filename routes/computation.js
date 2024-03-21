@@ -5,8 +5,17 @@ var router = express.Router();
 router.get('/', function(req, res, next) 
 {
   let x = Math.random()*10;
+  let c = Math.random()*10;
   let y = Math.tanh(x);
-  res.send(`tanh of ${x} is ${y}`);
+  let z = Math.pow(x,c);
+  let a = Math.sign(x);
+  let b = Math.trunc(x);
+  res.render("computation",{
+    y: `tanh value applied to ${x} is ${y}`,
+    z: `pow value applied to ${x} and ${c} is ${z}`,
+    a: `sign value applied to ${x} is ${a}`,
+    b: `trunc value applied to ${x} is ${b}`
+})
 });
 
 module.exports = router;
